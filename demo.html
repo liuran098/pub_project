@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>增删改查</title>
+  </head>
+  <style media="screen">
+    table{
+      /* border-top:1px solid rgb(153,153,153); */
+      width:800px;
+      border-top: 1px solid #000000;
+      border-left: 1px solid #000000;
+      border-collapse: collapse; /*设置单元格的边框合并为1*/
+    }
+   .word{
+      width:200px;
+      height:22px;
+      margin: 0px 6px;
+    }
+    .add_bg{
+      background: #EEEEEE;
+    }
+
+  </style>
+  <body>
+    <div class="">
+      <div class="add_header">
+        <h1>增删改查DEMO</h1>
+        <hr>
+      </div>
+      <div class="add_body">
+        <table border="1" cellspacing="10" cellpadding="10">
+          <tr>
+            <td class="add_bg">玩家账号:</td>
+            <td >
+              <input class="word" type="text" name="userAccount" value="">开头[2个字母简写]+用户ID[数字]如:sd10059
+            </td>
+          </tr>
+          <tr>
+            <td class="add_bg">中文姓名:</td>
+            <td>
+              <input class="word" type="text" name="userName" value="">只允许中文字符
+            </td>
+          </tr>
+          <tr>
+            <td class="add_bg">电话号码:</td>
+            <td>
+              <input class="word" type="text" name="userPhone" value="">国内电话号码，格式: 0832-4405222 或 021-87888822
+            </td>
+          </tr>
+          <tr>
+            <td class="add_bg">邮箱地址:</td>
+            <td>
+              <input class="word" type="text" name="userEmail" value="">邮箱地址，如wangking717@qq.com
+            </td>
+          </tr>
+          <tr>
+            <td class="add_bg">爱好:</td>
+            <td>
+              <input type="checkbox" name="userHobby" value="">看书
+              <input type="checkbox" name="userHobby" value="">写字
+              <input type="checkbox" name="userHobby" value="">编程
+              <input type="checkbox" name="userHobby" value="">看美女
+            </td>
+          </tr>
+          <tr>
+            <td class="add_bg">来自哪里:</td>
+            <td>
+              <select  name="userCity">
+                <option value="">－－请选择你来自哪里－－</option>
+                <option value="湖南">湖南</option>
+                <option value="上海">上海</option>
+                <option value="四川">四川</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td class="add_bg">文本:</td>
+            <td>
+              <textarea name="userIntroduce" rows="4" cols="40"></textarea>文本不能为空
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input style="display:none;" type="button" name="" value="修改">
+              <input type="button" id="addUser" value="提交">
+              <input type="reset" name="" value="重置">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <br>
+      <hr>
+      <div class="show_body">
+        <table border="1" cellspacing="10" cellpadding="10">
+          <tbody id="myTbody">
+            <tr>
+              <th>编号</th>
+      				<th>玩家账号</th>
+      				<th>中文姓名</th>
+      				<th>电话号码</th>
+      				<th>邮箱地址</th>
+      				<th>爱好</th>
+      				<th>来自哪里</th>
+      				<th>文本</th>
+      				<th>操作按钮</th>
+            </tr>
+
+            <tr id='a' style="display:none;">
+              <td attr="num">1</td>
+      				<td attr="userAccount">kane</td>
+      				<td attr="userName">老猪</td>
+      				<td attr="userPhone">189274671866</td>
+      				<td attr="userEmail">546822140@qq.com</td>
+      				<td attr="userHobby">看书</td>
+      				<td attr="userCity">湖南</td>
+      				<td attr="userIntroduce">fda</td>
+      				<td>
+      					<a href="">修改</a>
+      					&nbsp;&nbsp;
+                <a href="">删除</a>
+      				</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
+<script type="text/javascript">
+  var user = document.getElementById('addUser');
+  user.onclick = addDate;
+  var info = ["userAccount","userName","userPhone","userEmail","userHobby","userCity","userIntroduce"];
+  function addDate(){
+    var newTr = document.getElementById('a').cloneNode(true);
+    newTr.style.display = "";
+    var myTbody = document.getElementById('myTbody')
+    myTbody.appendChild(newTr);
+    console.log(newTr.firstElementChild.innerText)
+    newTr.firstElementChild.innerText=myTbody.children.length-1;
+
+  }
+</script>
